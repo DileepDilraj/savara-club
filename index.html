@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Savara Club" />
+  <meta name="theme-color" content="#100a06" />
+  <meta name="application-name" content="Savara Club" />
+  <link rel="icon" href="assets/imgs/fav-icon.png" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/fav-icon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/fav-icon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/fav-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="description" content="Discover Savara Club for live DJs, immersive nightlife, fine dining and signature cocktails. Explore upcoming events and plan your night after dark." />
+  <title>Savara Club | Live DJs, Nightlife &amp; Fine Dining</title>
+  <link rel="canonical" href="https://savara-club.netlify.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Savara Club" />
+  <meta property="og:title" content="Savara Club | Live DJs, Nightlife &amp; Fine Dining" />
+  <meta property="og:description" content="Discover live DJs, immersive nightlife, fine dining and signature cocktails at Savara Club. The rise begins after dark." />
+  <meta property="og:url" content="https://savara-club.netlify.app/" />
+  <meta property="og:image" content="https://savara-club.netlify.app/assets/imgs/og-image.webp" />
+  <meta property="og:image:secure_url" content="https://savara-club.netlify.app/assets/imgs/og-image.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Savara Club - Rise After Dark, with a molten-gold phoenix and cascading light." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Savara Club | Live DJs, Nightlife &amp; Fine Dining" />
+  <meta name="twitter:description" content="Discover live DJs, immersive nightlife, fine dining and signature cocktails at Savara Club." />
+  <meta name="twitter:image" content="https://savara-club.netlify.app/assets/imgs/og-image.webp" />
+  <meta name="twitter:image:alt" content="Savara Club - Rise After Dark, with a molten-gold phoenix and cascading light." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://savara-club.netlify.app/#website",
+        "url": "https://savara-club.netlify.app/",
+        "name": "Savara Club",
+        "description": "Live DJs, immersive nightlife, fine dining and signature cocktails after dark."
+      },
+      {
+        "@type": "NightClub",
+        "@id": "https://savara-club.netlify.app/#business",
+        "name": "Savara Club",
+        "url": "https://savara-club.netlify.app/",
+        "logo": "https://savara-club.netlify.app/assets/images/favicon-512.png",
+        "image": "https://savara-club.netlify.app/assets/imgs/og-image.webp",
+        "description": "A premium nightlife destination for live DJs, immersive performances, fine dining and signature cocktails.",
+        "email": "hello@savara.club",
+        "priceRange": "$$$",
+        "hasMenu": "https://savara-club.netlify.app/menu.html"
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <noscript><style>.pt,.preloader{display:none!important}</style></noscript>
+</head>
+<body>
+
+  <!-- Preloader (home only) -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__ringwrap">
+        <svg class="preloader__ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="preloader__track" cx="60" cy="60" r="54" />
+          <circle class="preloader__prog" cx="60" cy="60" r="54" />
+        </svg>
+        <span class="preloader__phoenix" aria-hidden="true"></span>
+      </div>
+      <div class="preloader__pct">0%</div>
+    </div>
+  </div>
+
+  <!-- Ember particle canvas -->
+  <canvas id="embers" aria-hidden="true"></canvas>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="brand" aria-label="Savara Club home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <img src="assets/imgs/savara-logo.svg" alt="Savara Club" class="brand__logo" />
+      </a>
+
+      <button class="nav__menu-btn" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <span class="nav__menu-label">Menu</span>
+        <span class="nav__menu-icon"><i></i><i></i><i></i></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ FULL-SCREEN MENU ============ -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <div class="menu__bg"></div>
+    <span class="menu__phoenix" aria-hidden="true"></span>
+
+    <nav class="menu__nav">
+      <a class="menu__item is-current" href="index.html"><span class="menu__num">01</span><span class="menu__label">Home</span></a>
+      <a class="menu__item" href="about.html"><span class="menu__num">02</span><span class="menu__label">About</span></a>
+      <a class="menu__item" href="events.html"><span class="menu__num">03</span><span class="menu__label">Events</span></a>
+      <a class="menu__item" href="menu.html"><span class="menu__num">04</span><span class="menu__label">Menu</span></a>
+      <a class="menu__item" href="contact.html"><span class="menu__num">05</span><span class="menu__label">Contact</span></a>
+    </nav>
+
+    <div class="menu__aside">
+      <div>
+        <h4>Visit</h4>
+        <p>631/2, Ozran Beach Rd<br />Vagator, Goa 403509 · Open Thu–Sun</p>
+      </div>
+      <div>
+        <h4>Reservations</h4>
+        <p><a href="tel:+917397956179">+91 73979 56179</a><br /><a href="mailto:hello@savara.club">hello@savara.club</a></p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <div class="menu__socials">
+          <a href="#">Facebook</a><a href="#">Instagram</a><a href="#">Google</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__glow"></div>
+    <span class="hero__phoenix" aria-hidden="true"></span>
+    <div class="hero__waterfall" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="hero__content">
+      <p class="eyebrow reveal">Vagator, Goa · Since 2023</p>
+      <h1 class="hero__title reveal">
+        The night <span class="grad">you were born</span><br /> to remember.
+      </h1>
+      <p class="hero__sub reveal">Live DJs, performance &amp; dining — after dark.</p>
+      <div class="hero__cta reveal">
+        <a href="events.html" class="btn btn--gold btn--lg magnetic">See Upcoming Events</a>
+      </div>
+
+      <div class="hero__stats reveal">
+        <div><strong data-count="120">0</strong><span>Nights a year</span></div>
+        <div><strong data-count="80">0</strong><span>Resident &amp; guest artists</span></div>
+        <div><strong data-count="15">0</strong><span>K+ souls ignited</span></div>
+      </div>
+    </div>
+
+    <a href="#events" class="hero__scroll" aria-label="Scroll down">
+      <span></span> Scroll
+    </a>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>HIGH ENERGY</span><i>✦</i><span>WATERFALL NIGHTS</span><i>✦</i>
+      <span>LIVE PERFORMANCE</span><i>✦</i><span>GOLDEN HOUR DINING</span><i>✦</i>
+      <span>RISE AFTER DARK</span><i>✦</i>
+      <span>HIGH ENERGY</span><i>✦</i><span>WATERFALL NIGHTS</span><i>✦</i>
+      <span>LIVE PERFORMANCE</span><i>✦</i><span>GOLDEN HOUR DINING</span><i>✦</i>
+      <span>RISE AFTER DARK</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- ============ EVENTS ============ -->
+  <section class="section events" id="events">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow reveal">What's on</p>
+        <h2 class="reveal">Upcoming <span class="grad">Events</span></h2>
+      </div>
+      <p class="section__lead reveal">
+        A season of electrifying nights - techno, afro-house and open-format sets
+        wrapped in cinematic production. Every night is engineered to move you.
+      </p>
+    </div>
+
+    <div class="events__grid">
+      <!-- Feature event -->
+      <article class="event event--feature reveal">
+        <div class="event__media">
+          <img src="assets/club-imgs/jpeg-44.webp" alt="Phoenix Rising headline night" loading="lazy" />
+          <span class="event__date"><b>15</b>JUN</span>
+          <span class="event__badge">Headline</span>
+        </div>
+        <div class="event__body">
+          <h3>Phoenix Rising · The Ember Sessions</h3>
+          <p>A 6-hour waterfall of sound with a live drum ensemble and aerial fire performers.</p>
+          <ul class="event__meta">
+            <li>🕙 10PM – 4AM</li>
+            <li>🎧 Resident + Special Guest</li>
+            <li>🔥 Main Floor</li>
+          </ul>
+          <div class="event__foot">
+            <span class="event__price">From <b>₹1,500</b></span>
+            <a href="#" class="btn btn--gold">Buy Tickets</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Side events -->
+      <div class="events__side">
+        <article class="event event--mini reveal">
+          <div class="event__media">
+            <img src="assets/club-imgs/jpeg-23.webp" alt="Afro Cascade night" loading="lazy" />
+            <span class="event__date"><b>22</b>JUN</span>
+          </div>
+          <div class="event__body">
+            <h3>Afro Cascade</h3>
+            <p>Afro-house &amp; organic rhythms.</p>
+            <div class="event__foot">
+              <span class="event__price">₹1,000</span>
+              <a href="#" class="btn btn--ghost btn--sm">Tickets</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="event event--mini reveal">
+          <div class="event__media">
+            <img src="assets/club-imgs/jpeg-85.webp" alt="Golden Hour rooftop" loading="lazy" />
+            <span class="event__date"><b>28</b>JUN</span>
+          </div>
+          <div class="event__body">
+            <h3>Golden Hour Rooftop</h3>
+            <p>Sunset dining meets deep house.</p>
+            <div class="event__foot">
+              <span class="event__price">₹1,200</span>
+              <a href="#" class="btn btn--ghost btn--sm">Tickets</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DJ LINEUP ============ -->
+  <section class="section djs" id="djs">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow reveal">The talent</p>
+        <h2 class="reveal">The next generation <span class="grad">of artists</span></h2>
+      </div>
+      <p class="section__lead reveal">
+        Residents and rising names who turn a dance floor into a living organism.
+        Tap a name to feel their signature energy.
+      </p>
+    </div>
+
+    <div class="djs__grid">
+      <article class="dj reveal">
+        <div class="dj__media">
+          <img src="assets/club-imgs/jpeg-7.webp" alt="DJ Solaya" loading="lazy" />
+          <button class="dj__play" aria-label="Preview DJ Solaya">▶</button>
+        </div>
+        <div class="dj__info">
+          <div><h3>Solaya</h3><span>Melodic Techno</span></div>
+          <div class="dj__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </article>
+
+      <article class="dj reveal">
+        <div class="dj__media">
+          <img src="assets/club-imgs/jpeg-47.webp" alt="DJ Ember" loading="lazy" />
+          <button class="dj__play" aria-label="Preview DJ Ember">▶</button>
+        </div>
+        <div class="dj__info">
+          <div><h3>Ember</h3><span>Afro House</span></div>
+          <div class="dj__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </article>
+
+      <article class="dj reveal">
+        <div class="dj__media">
+          <img src="assets/club-imgs/jpeg-26.webp" alt="DJ Cascade" loading="lazy" />
+          <button class="dj__play" aria-label="Preview DJ Cascade">▶</button>
+        </div>
+        <div class="dj__info">
+          <div><h3>Cascade</h3><span>Organic / Downtempo</span></div>
+          <div class="dj__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </article>
+
+      <article class="dj reveal">
+        <div class="dj__media">
+          <img src="assets/club-imgs/jpeg-21.webp" alt="DJ Noor" loading="lazy" />
+          <button class="dj__play" aria-label="Preview DJ Noor">▶</button>
+        </div>
+        <div class="dj__info">
+          <div><h3>Noor</h3><span>Open Format</span></div>
+          <div class="dj__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ DINING ============ -->
+  <section class="section dining" id="dining">
+    <div class="dining__grid">
+      <div class="dining__media reveal">
+        <img src="assets/club-imgs/jpeg-5.webp" alt="Savara dining room" loading="lazy" />
+        <div class="dining__cocktail">
+          <img src="assets/club-imgs/jpeg-12.webp" alt="Signature cocktail" loading="lazy" />
+        </div>
+      </div>
+      <div class="dining__text">
+        <p class="eyebrow reveal">Before the beat drops</p>
+        <h2 class="reveal">Dine in <span class="grad">golden light</span></h2>
+        <p class="reveal">
+          Our kitchen is where the night begins. A fire-driven menu of smoke,
+          char and citrus, paired with a cocktail programme built around warm
+          amber spirits. Reserve early and let the evening rise with you.
+        </p>
+        <ul class="dining__list reveal">
+          <li><span>01</span> Fire-kissed sharing plates</li>
+          <li><span>02</span> Barrel-aged signature cocktails</li>
+          <li><span>03</span> Terrace &amp; main-floor seating</li>
+          <li><span>04</span> Seamless dinner-to-dancefloor flow</li>
+        </ul>
+        <div class="dining__cta reveal">
+          <a href="#" class="btn btn--gold btn--lg">View the Menu</a>
+          <a href="#" class="btn btn--ghost btn--lg">Reserve</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE VIBE ============ -->
+  <section class="section vibe" id="vibe">
+    <div class="vibe__inner">
+      <p class="eyebrow reveal">Energy &amp; vibe</p>
+      <h2 class="reveal">Built on <span class="grad">constructive energy</span>.</h2>
+      <p class="vibe__lead reveal">Precision sound, live performance and an immersive space - designed to elevate you.</p>
+      <div class="vibe__cards">
+        <div class="vibe__card reveal"><h3>Precision Sound</h3><p>Feel every beat.</p></div>
+        <div class="vibe__card reveal"><h3>Live Performance</h3><p>Aerialists, drummers &amp; fire artists.</p></div>
+        <div class="vibe__card reveal"><h3>Immersive Space</h3><p>Waterfall visuals &amp; amber light.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section gallery" id="gallery">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal">The moments</p>
+      <h2 class="reveal">Social <span class="grad">media</span></h2>
+      <a class="gallery__handle reveal" href="#">@savara.club</a>
+    </div>
+    <div class="gallery__grid">
+      <a class="gallery__item reveal" href="#"><img src="assets/club-imgs/jpeg-3.webp" alt="Crowd" loading="lazy" /></a>
+      <a class="gallery__item gallery__item--tall reveal" href="#"><img src="assets/club-imgs/jpeg-121.webp" alt="Performance" loading="lazy" /></a>
+      <a class="gallery__item reveal" href="#"><img src="assets/club-imgs/jpeg-46.webp" alt="Lights" loading="lazy" /></a>
+      <a class="gallery__item reveal" href="#"><img src="assets/club-imgs/jpeg-47.webp" alt="DJ set" loading="lazy" /></a>
+      <a class="gallery__item reveal" href="#"><img src="assets/club-imgs/jpeg-21.webp" alt="Terrace" loading="lazy" /></a>
+      <a class="gallery__item gallery__item--wide reveal" href="#"><img src="assets/club-imgs/jpeg-99.webp" alt="Main floor" loading="lazy" /></a>
+    </div>
+    <div class="gallery__foot reveal">
+      <a href="#" class="btn btn--ghost">Follow on Instagram</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <span class="footer__phoenix" aria-hidden="true"></span>
+    <div class="footer__inner">
+      <div class="footer__left">
+        <a href="index.html" class="brand footer__brandlink">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <img src="assets/imgs/savara-logo.svg" alt="Savara Club" class="brand__logo" />
+        </a>
+        <p class="footer__tag">The rise begins after dark. High energy, constructive vibe - a waterfall of sound in dark brown &amp; gold.</p>
+        <nav class="footer__links">
+          <a href="events.html">Tickets</a>
+          <a href="events.html">VIP Tables</a>
+          <a href="menu.html">Dining</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </nav>
+      </div>
+
+      <div class="footer__news">
+        <h3>Newsletter</h3>
+        <p>Join today and get <span class="grad">10% off</span> your first ticket - plus first access to guestlist &amp; table drops.</p>
+        <form class="footer__form" id="newsForm" data-form novalidate>
+          <input type="email" id="newsEmail" placeholder="Your email" aria-label="Email address" required />
+          <button type="submit" class="btn btn--gold">Subscribe</button>
+        </form>
+        <p class="footer__msg form-msg" id="newsMsg" role="status"></p>
+      </div>
+    </div>
+
+    <div class="footer__bar">
+      <span>© <span data-year>2026</span> Savara • All rights reserved.</span>
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.6l.4-3h-3V8.1c0-.9.3-1.5 1.6-1.5H17V4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V10H8v3h2.6v8h2.9z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Google"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 12.23c0-.68-.06-1.33-.17-1.96H12v3.71h5.38a4.6 4.6 0 0 1-2 3.02v2.5h3.24c1.9-1.75 2.98-4.33 2.98-7.27z"/><path d="M12 22c2.7 0 4.96-.9 6.62-2.42l-3.24-2.5c-.9.6-2.05.96-3.38.96-2.6 0-4.8-1.76-5.59-4.13H3.06v2.6A10 10 0 0 0 12 22z"/><path d="M6.41 13.91A6 6 0 0 1 6.1 12c0-.66.11-1.31.31-1.91V7.49H3.06A10 10 0 0 0 2 12c0 1.61.39 3.14 1.06 4.51z"/><path d="M12 6.58c1.47 0 2.79.5 3.83 1.5l2.87-2.87A10 10 0 0 0 12 2 10 10 0 0 0 3.06 7.49l3.35 2.6C7.2 8.34 9.4 6.58 12 6.58z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__accent" aria-hidden="true"></div>
+  </footer>
+
+  <!-- Page transition overlay -->
+  <div class="pt" id="pageTransition" aria-hidden="true">
+    <span class="pt__col"></span><span class="pt__col"></span><span class="pt__col"></span>
+    <span class="pt__col"></span><span class="pt__col"></span>
+    <span class="pt__logo"></span>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/script.js"></script>
+</body>
+</html>

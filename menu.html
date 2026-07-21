@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Savara Club" />
+  <meta name="theme-color" content="#100a06" />
+  <meta name="application-name" content="Savara Club" />
+  <link rel="icon" href="assets/imgs/fav-icon.png" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/fav-icon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/fav-icon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/fav-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="description" content="Explore the Savara Club dining menu: fire-driven small plates, flame-grilled mains, desserts and signature cocktails for the perfect night out." />
+  <title>Savara Club Menu | Dining &amp; Signature Cocktails</title>
+  <link rel="canonical" href="https://savara-club.netlify.app/menu.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Savara Club" />
+  <meta property="og:title" content="Savara Club Menu | Dining &amp; Signature Cocktails" />
+  <meta property="og:description" content="Explore fire-driven small plates, flame-grilled mains, desserts and signature cocktails at Savara Club." />
+  <meta property="og:url" content="https://savara-club.netlify.app/menu.html" />
+  <meta property="og:image" content="https://savara-club.netlify.app/assets/imgs/og-image.webp" />
+  <meta property="og:image:secure_url" content="https://savara-club.netlify.app/assets/imgs/og-image.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Savara Club - Rise After Dark, with a molten-gold phoenix and cascading light." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Savara Club Menu | Dining &amp; Cocktails" />
+  <meta name="twitter:description" content="Explore fire-driven plates, flame-grilled mains, desserts and signature cocktails at Savara Club." />
+  <meta name="twitter:image" content="https://savara-club.netlify.app/assets/imgs/og-image.webp" />
+  <meta name="twitter:image:alt" content="Savara Club - Rise After Dark, with a molten-gold phoenix and cascading light." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Savara Club Dining and Cocktail Menu",
+    "url": "https://savara-club.netlify.app/menu.html",
+    "description": "Fire-driven small plates, flame-grilled mains, desserts and signature cocktails at Savara Club.",
+    "isPartOf": { "@id": "https://savara-club.netlify.app/#website" },
+    "about": { "@id": "https://savara-club.netlify.app/#business" },
+    "mainEntity": { "@type": "Menu", "name": "Savara Club Menu" }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <noscript><style>.pt,.preloader{display:none!important}</style></noscript>
+</head>
+<body>
+
+  <canvas id="embers" aria-hidden="true"></canvas>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="brand" aria-label="Savara Club home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <img src="assets/imgs/savara-logo.svg" alt="Savara Club" class="brand__logo" />
+      </a>
+      <button class="nav__menu-btn" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <span class="nav__menu-label">Menu</span>
+        <span class="nav__menu-icon"><i></i><i></i><i></i></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <div class="menu__bg"></div>
+    <span class="menu__phoenix" aria-hidden="true"></span>
+    <nav class="menu__nav">
+      <a class="menu__item" href="index.html"><span class="menu__num">01</span><span class="menu__label">Home</span></a>
+      <a class="menu__item" href="about.html"><span class="menu__num">02</span><span class="menu__label">About</span></a>
+      <a class="menu__item" href="events.html"><span class="menu__num">03</span><span class="menu__label">Events</span></a>
+      <a class="menu__item is-current" href="menu.html"><span class="menu__num">04</span><span class="menu__label">Menu</span></a>
+      <a class="menu__item" href="contact.html"><span class="menu__num">05</span><span class="menu__label">Contact</span></a>
+    </nav>
+    <div class="menu__aside">
+      <div><h4>Visit</h4><p>631/2, Ozran Beach Rd<br />Vagator, Goa 403509 &middot; Open Thu&ndash;Sun</p></div>
+      <div><h4>Reservations</h4><p><a href="tel:+917397956179">+91 73979 56179</a><br /><a href="mailto:hello@savara.club">hello@savara.club</a></p></div>
+      <div><h4>Follow</h4><div class="menu__socials"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">Google</a></div></div>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero__bg" aria-hidden="true"><img src="assets/club-imgs/jpeg-5.webp" alt="" /></div>
+    <div class="page-hero__inner">
+      <div class="crumb reveal"><a href="index.html">Home</a> &nbsp;/&nbsp; Menu</div>
+      <h1 class="reveal">Dining &amp; Cocktail <span class="grad">Menu</span></h1>
+      <p class="reveal">Explore fire-driven small plates, flame-grilled mains and desserts &mdash; paired with signature cocktails built around warm amber spirits.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="menu-cat reveal">
+      <h3>Small Plates</h3>
+      <p>To share, as the room fills.</p>
+      <div class="dish reveal">
+        <div class="dish__name">Charred Padr&oacute;n Peppers <span class="dish__tag">V</span></div>
+        <div class="dish__price">₹450</div>
+        <div class="dish__desc">Sea salt, smoked honey, lime.</div>
+      </div>
+      <div class="dish reveal">
+        <div class="dish__name">Ember Flatbread</div>
+        <div class="dish__price">₹650</div>
+        <div class="dish__desc">Fermented chilli butter, aged cheese, wild herbs.</div>
+      </div>
+      <div class="dish reveal">
+        <div class="dish__name">Citrus-Cured Sea Bass</div>
+        <div class="dish__price">₹750</div>
+        <div class="dish__desc">Blood orange, fennel, golden oil.</div>
+      </div>
+    </div>
+
+    <div class="menu-cat reveal">
+      <h3>Fire &amp; Smoke</h3>
+      <p>From the open flame.</p>
+      <div class="dish reveal">
+        <div class="dish__name">Fire-Kissed Short Rib <span class="dish__tag">Signature</span></div>
+        <div class="dish__price">₹1,250</div>
+        <div class="dish__desc">12-hour smoke, amber glaze, burnt onion.</div>
+      </div>
+      <div class="dish reveal">
+        <div class="dish__name">Flame-Grilled Cauliflower <span class="dish__tag">VG</span></div>
+        <div class="dish__price">₹650</div>
+        <div class="dish__desc">Tahini, pomegranate, toasted seeds.</div>
+      </div>
+      <div class="dish reveal">
+        <div class="dish__name">Coal-Roasted Chicken</div>
+        <div class="dish__price">₹950</div>
+        <div class="dish__desc">Charred lemon, smoked garlic, herb oil.</div>
+      </div>
+    </div>
+
+    <div class="menu-cat reveal">
+      <h3>Sweet</h3>
+      <p>Endings worth staying for.</p>
+      <div class="dish reveal">
+        <div class="dish__name">Burnt Honey Basque</div>
+        <div class="dish__price">₹450</div>
+        <div class="dish__desc">Caramelised cheesecake, sea salt.</div>
+      </div>
+      <div class="dish reveal">
+        <div class="dish__name">Dark Cocoa &amp; Amber</div>
+        <div class="dish__price">₹550</div>
+        <div class="dish__desc">Bitter chocolate, whisky caramel, gold leaf.</div>
+      </div>
+    </div>
+
+    <div class="menu-cat reveal">
+      <h3>Signature Cocktails</h3>
+      <p>Amber spirits, barrel-aged and stirred.</p>
+      <div class="dish reveal">
+        <div class="dish__name">The Phoenix <span class="dish__tag">Signature</span></div>
+        <div class="dish__price">₹750</div>
+        <div class="dish__desc">Barrel-aged bourbon, smoked maple, bitters.</div>
+      </div>
+      <div class="dish reveal">
+        <div class="dish__name">Golden Hour</div>
+        <div class="dish__price">₹700</div>
+        <div class="dish__desc">Amber rum, passionfruit, citrus, ginger.</div>
+      </div>
+      <div class="dish reveal">
+        <div class="dish__name">Waterfall</div>
+        <div class="dish__price">₹650</div>
+        <div class="dish__desc">Mezcal, cucumber, elderflower, lime.</div>
+      </div>
+      <div class="dish reveal">
+        <div class="dish__name">Ember Old Fashioned</div>
+        <div class="dish__price">₹750</div>
+        <div class="dish__desc">Smoked rye, demerara, orange oil.</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="text-align:center;margin-top:1rem">
+      <a href="contact.html" class="btn btn--gold btn--lg magnetic">Reserve a Table</a>
+      <p style="color:var(--ink-dim);margin-top:1rem;font-size:.9rem">Kitchen open Thu&ndash;Sun, 6PM &ndash; 1AM</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer__phoenix" aria-hidden="true"></span>
+    <div class="footer__inner">
+      <div class="footer__left">
+        <a href="index.html" class="brand footer__brandlink">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <img src="assets/imgs/savara-logo.svg" alt="Savara Club" class="brand__logo" />
+        </a>
+        <p class="footer__tag">The rise begins after dark. High energy, constructive vibe &mdash; a waterfall of sound in dark brown &amp; gold.</p>
+        <nav class="footer__links">
+          <a href="events.html">Tickets</a>
+          <a href="events.html">VIP Tables</a>
+          <a href="menu.html">Dining</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </nav>
+      </div>
+      <div class="footer__news">
+        <h3>Newsletter</h3>
+        <p>Join today and get <span class="grad">10% off</span> your first ticket &mdash; plus first access to guestlist &amp; table drops.</p>
+        <form class="footer__form" data-form novalidate>
+          <input type="email" placeholder="Your email" aria-label="Email address" required />
+          <button type="submit" class="btn btn--gold">Subscribe</button>
+        </form>
+        <p class="footer__msg form-msg" role="status"></p>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; <span data-year>2026</span> Savara • All rights reserved.</span>
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.6l.4-3h-3V8.1c0-.9.3-1.5 1.6-1.5H17V4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V10H8v3h2.6v8h2.9z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Google"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 12.23c0-.68-.06-1.33-.17-1.96H12v3.71h5.38a4.6 4.6 0 0 1-2 3.02v2.5h3.24c1.9-1.75 2.98-4.33 2.98-7.27z"/><path d="M12 22c2.7 0 4.96-.9 6.62-2.42l-3.24-2.5c-.9.6-2.05.96-3.38.96-2.6 0-4.8-1.76-5.59-4.13H3.06v2.6A10 10 0 0 0 12 22z"/><path d="M6.41 13.91A6 6 0 0 1 6.1 12c0-.66.11-1.31.31-1.91V7.49H3.06A10 10 0 0 0 2 12c0 1.61.39 3.14 1.06 4.51z"/><path d="M12 6.58c1.47 0 2.79.5 3.83 1.5l2.87-2.87A10 10 0 0 0 12 2 10 10 0 0 0 3.06 7.49l3.35 2.6C7.2 8.34 9.4 6.58 12 6.58z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__accent" aria-hidden="true"></div>
+  </footer>
+
+  <div class="pt pt--enter" id="pageTransition" aria-hidden="true">
+    <span class="pt__col"></span><span class="pt__col"></span><span class="pt__col"></span>
+    <span class="pt__col"></span><span class="pt__col"></span>
+    <span class="pt__logo"></span>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/script.js"></script>
+
+</body>
+</html>
