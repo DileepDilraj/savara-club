@@ -316,6 +316,85 @@
     requestAnimationFrame(tick);
   }
 
+  /* ---------- Carousels (events + reels) ---------- */
+  $$('.carousel').forEach((car) => {
+    const track = $('.carousel__track', car);
+    if (!track) return;
+    const prev = $('[data-carousel-prev]', car);
+    const next = $('[data-carousel-next]', car);
+    const step = () => {
+      const first = track.firstElementChild;
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 20;
+      return first ? first.getBoundingClientRect().width + gap : track.clientWidth * 0.85;
+    };
+    const update = () => {
+      if (!prev || !next) return;
+      const max = track.scrollWidth - track.clientWidth - 2;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max;
+    };
+    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    if (next) next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+
+    // Pointer drag-to-scroll (ignores clicks on links/buttons)
+    let down = false, moved = false, sx = 0, sl = 0;
+    track.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse' && e.target.closest('a, button')) return;
+      down = true; moved = false; sx = e.clientX; sl = track.scrollLeft;
+      track.style.cursor = 'grabbing';
+    });
+    track.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const dx = e.clientX - sx;
+      if (Math.abs(dx) > 4) moved = true;
+      track.scrollLeft = sl - dx;
+    });
+    const endDrag = () => { down = false; track.style.cursor = ''; };
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+    track.addEventListener('pointerleave', endDrag);
+    // Suppress the click that ends a drag so cards don't navigate accidentally
+    track.addEventListener('click', (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+  });
+
+  /* ---------- Reels (LIVE Performances) ---------- */
+  const ICON_MUTED = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="m16 9 5 6M21 9l-5 6"/></svg>';
+  const ICON_SOUND = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a4 4 0 0 1 0 7"/></svg>';
+  $$('.reel').forEach((reel) => {
+    const video = $('video', reel);
+    if (!video) return;
+    const sound = $('.reel__sound', reel);
+    const playBtn = $('.reel__play', reel);
+    video.muted = true;
+    if (sound) sound.innerHTML = ICON_MUTED;
+
+    const toggle = () => {
+      if (video.paused) { video.play().catch(() => {}); reel.classList.remove('paused'); }
+      else { video.pause(); reel.classList.add('paused'); }
+    };
+    if (playBtn) playBtn.addEventListener('click', toggle);
+    if (sound) sound.addEventListener('click', (e) => {
+      e.stopPropagation();
+      video.muted = !video.muted;
+      sound.innerHTML = video.muted ? ICON_MUTED : ICON_SOUND;
+      if (!video.muted && video.paused) { video.play().catch(() => {}); reel.classList.remove('paused'); }
+    });
+
+    // Autoplay only while in view (saves battery, feels alive)
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) { video.play().catch(() => {}); reel.classList.remove('paused'); }
+          else { video.pause(); }
+        });
+      }, { threshold: 0.55 });
+      io.observe(reel);
+    }
+  });
+
   /* ---------- Year ---------- */
   $$('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 
