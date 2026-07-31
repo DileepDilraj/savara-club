@@ -1,0 +1,16 @@
+{
+  "name": "Savara",
+  "short_name": "Savara",
+  "description": "Goa's premium nightlife destination in Vagator.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#100a06",
+  "theme_color": "#100a06",
+  "icons": [
+    {
+      "src": "/assets/imgs/fav-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

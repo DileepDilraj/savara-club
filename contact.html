@@ -99,7 +99,7 @@
   </section>
 
   <section class="section">
-    <div class="contact-grid">
+    <div class="contact-grid contact-grid--split">
       <div class="info-block">
       <div class="info-item reveal">
         <div class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
@@ -117,20 +117,62 @@
         <div class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
         <div><h4>Email</h4><p><a href="mailto:hello@savara.club">hello@savara.club</a></p></div>
       </div>
+        <div class="quick-actions reveal">
+          <a class="quick-action" href="https://wa.me/917397956179?text=Hi%20Savara%2C%20I%27d%20like%20to%20book%20a%20table." target="_blank" rel="noopener" data-no-transition>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.44 2.13 11.9c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.14-2.9-7.02A9.82 9.82 0 0 0 12.04 2Zm0 1.8c2.16 0 4.19.84 5.72 2.37a8.03 8.03 0 0 1 2.37 5.73c0 4.46-3.63 8.1-8.1 8.1a8.1 8.1 0 0 1-4.13-1.14l-.3-.17-3.1.81.83-3.03-.2-.31a8.03 8.03 0 0 1-1.24-4.29c0-4.46 3.63-8.1 8.1-8.1Zm-2.6 4.3c-.15 0-.4.06-.6.28-.22.22-.83.81-.83 1.98s.85 2.3.97 2.46c.12.16 1.67 2.55 4.05 3.58.57.24 1.01.39 1.36.5.57.18 1.09.15 1.5.09.46-.07 1.4-.57 1.6-1.13.2-.55.2-1.03.14-1.13-.06-.1-.22-.16-.46-.28-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.53.12-.16.24-.6.77-.74.93-.14.16-.27.18-.5.06-.24-.12-1.01-.37-1.92-1.19-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.01-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.53-1.29-.73-1.77-.19-.46-.39-.4-.53-.4h-.45Z"/></svg>
+            <span><b>WhatsApp us</b>Fastest way to reserve</span>
+          </a>
+          <a class="quick-action" href="https://maps.google.com/?q=Savara+Vagator+Goa" target="_blank" rel="noopener" data-no-transition>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span><b>Get directions</b>Ozran Beach Rd, Vagator</span>
+          </a>
+        </div>
+
+        <a class="map-panel reveal" href="https://maps.google.com/?q=Savara+Vagator+Goa" target="_blank" rel="noopener" data-no-transition aria-label="Open Savara in Google Maps">
+          <img src="assets/video/reel-1-poster.webp" alt="" loading="lazy" />
+          <span class="map-panel__scrim" aria-hidden="true"></span>
+          <span class="map-panel__pin" aria-hidden="true"></span>
+          <span class="map-panel__label">
+            <b>Savara · Vagator</b>
+            Anjuna Caisua, 631/2, Ozran Beach Rd, Goa 403509
+            <em>Open in Google Maps &#8599;</em>
+          </span>
+        </a>
       </div>
 
       <form class="form-card reveal" data-form novalidate>
         <div class="form-row">
-          <div class="field"><label for="cname">Name</label><input id="cname" type="text" placeholder="Your name" required /></div>
-          <div class="field"><label for="cemail">Email</label><input id="cemail" type="email" placeholder="you@email.com" required /></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label for="cdate">Date</label><input id="cdate" type="date" /></div>
-          <div class="field"><label for="cguests">Guests</label>
-            <select id="cguests"><option>1&ndash;2</option><option>3&ndash;4</option><option>5&ndash;8</option><option>9+</option></select>
+          <div class="field">
+            <label for="cname">Name</label>
+            <input id="cname" name="name" type="text" placeholder="Your name" autocomplete="name" required minlength="2" />
+            <p class="field__err" id="cname-err" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="cemail">Email</label>
+            <input id="cemail" name="email" type="email" placeholder="you@email.com" autocomplete="email" required />
+            <p class="field__err" id="cemail-err" role="alert"></p>
           </div>
         </div>
-        <div class="field"><label for="cmsg">Message</label><textarea id="cmsg" placeholder="Tell us about your night&hellip;"></textarea></div>
+        <div class="form-row">
+          <div class="field">
+            <label for="cdate">Date</label>
+            <input id="cdate" name="date" type="date" data-datepicker required />
+            <p class="field__err" id="cdate-err" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="cguests">Guests</label>
+            <select id="cguests" name="guests" data-select required>
+              <option value="">Select&hellip;</option>
+              <option>1&ndash;2</option><option>3&ndash;4</option><option>5&ndash;8</option><option>9+</option>
+            </select>
+            <p class="field__err" id="cguests-err" role="alert"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cmsg">Message</label>
+          <textarea id="cmsg" name="message" placeholder="Tell us about your night&hellip;" required minlength="10"></textarea>
+          <p class="field__err" id="cmsg-err" role="alert"></p>
+        </div>
         <button type="submit" class="btn btn--gold btn--lg">Send request</button>
         <p class="form-msg" role="status"></p>
       </form>

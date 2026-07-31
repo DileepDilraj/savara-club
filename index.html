@@ -48,7 +48,7 @@
         "@id": "https://savara-club.netlify.app/#business",
         "name": "Savara",
         "url": "https://savara-club.netlify.app/",
-        "logo": "https://savara-club.netlify.app/assets/images/favicon-512.png",
+        "logo": "https://savara-club.netlify.app/assets/imgs/fav-icon.png",
         "image": "https://savara-club.netlify.app/assets/imgs/og-image.webp",
         "description": "Goa's premium nightlife destination — world-class DJ sets, live performances, signature cocktails and gourmet dining on a 30,000 sq ft floor in Vagator.",
         "telephone": "+91-73979-56179",
@@ -70,6 +70,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css" />
+  <link rel="preload" as="image" href="assets/video/hero-poster.webp" fetchpriority="high" />
   <noscript><style>.pt,.preloader{display:none!important}</style></noscript>
 </head>
 <body>
@@ -79,8 +80,20 @@
     <div class="preloader__inner">
       <div class="preloader__ringwrap">
         <svg class="preloader__ring" viewBox="0 0 120 120" aria-hidden="true">
+          <defs>
+            <filter id="preloaderGlow" x="-30" y="-30" width="180" height="180" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4.2" result="glowBlur" />
+              <feComponentTransfer in="glowBlur" result="softGlow">
+                <feFuncA type="linear" slope=".72" />
+              </feComponentTransfer>
+              <feMerge>
+                <feMergeNode in="softGlow" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
           <circle class="preloader__track" cx="60" cy="60" r="54" />
-          <circle class="preloader__prog" cx="60" cy="60" r="54" />
+          <circle class="preloader__prog" cx="60" cy="60" r="54" filter="url(#preloaderGlow)" />
         </svg>
         <span class="preloader__phoenix" aria-hidden="true"></span>
       </div>
@@ -143,14 +156,14 @@
     </div>
   </div>
 
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO - full-bleed video ============ -->
   <section class="hero" id="top">
-    <div class="hero__glow"></div>
-    <span class="hero__phoenix" aria-hidden="true"></span>
-    <div class="hero__waterfall" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
+    <div class="hero__media" aria-hidden="true">
+      <video class="hero__video" autoplay loop muted playsinline preload="metadata" poster="assets/video/hero-poster.webp">
+        <source src="assets/video/hero.mp4" type="video/mp4" />
+      </video>
     </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
 
     <div class="hero__content">
       <p class="hero__loc reveal">
@@ -160,22 +173,62 @@
       <h1 class="hero__title reveal">
         Goa's Premium <span class="grad">Nightlife</span><br /> Destination.
       </h1>
-      <p class="hero__sub reveal">World-class sets, live performances, and one floor that stays alive all night.</p>
+      <p class="hero__meta reveal">Thursday – Sunday · 8PM – 5AM · 30,000 sq ft floor</p>
       <div class="hero__cta reveal">
-        <a href="https://instagram.com/savara_goa" class="btn btn--gold btn--lg magnetic" target="_blank" rel="noopener" data-no-transition>Follow Us</a>
+        <a class="btn btn--gold btn--lg magnetic" href="https://wa.me/917397956179?text=Hi%20Savara%2C%20I%27d%20like%20to%20book%20a%20table." target="_blank" rel="noopener" data-no-transition>Book a Table</a>
         <a href="#events" class="btn btn--ghost btn--lg">Upcoming Events</a>
-      </div>
-
-      <div class="hero__stats reveal">
-        <div><strong><span data-count="50">0</span>+</strong><span>Live Performances</span></div>
-        <div><strong><span data-count="100">0</span>+</strong><span>World-Class DJ Sets</span></div>
-        <div><strong><span data-count="1000">0</span>+</strong><span>Souls, One Floor</span></div>
       </div>
     </div>
 
-    <a href="#events" class="hero__scroll" aria-label="Scroll to events">
+    <a href="#intro" class="hero__scroll" aria-label="Scroll down">
       <span></span> Scroll
     </a>
+  </section>
+
+  <!-- ============ INTRO ============ -->
+  <section class="intro" id="intro">
+    <div class="intro__frame">
+      <div class="intro__copy">
+        <p class="eyebrow reveal">Welcome to Savara</p>
+        <h2 class="intro__lead reveal">
+          World-class sets, live performances, and one floor that
+          <span class="grad">stays alive all night.</span>
+        </h2>
+        <p class="intro__body reveal">Immersive production, live acts and a dance floor built for the hours after midnight.</p>
+        <div class="intro__actions reveal">
+          <a href="https://instagram.com/savara_goa" class="btn btn--ghost btn--lg" target="_blank" rel="noopener" data-no-transition>
+            Follow the night
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <figure class="intro__visual reveal">
+        <img src="assets/club-imgs/jpeg-26.webp" alt="Performer in an ornate black and gold bodysuit on the Savara stage" loading="lazy" />
+        <div class="intro__visual-meta">
+          <span>Live at Savara</span>
+          <span>Vagator · Goa</span>
+        </div>
+      </figure>
+
+      <div class="intro__stats reveal" aria-label="Savara highlights">
+        <div class="intro__stat">
+          <span class="intro__stat-num">01</span>
+          <strong><span data-count="50">0</span>+</strong>
+          <span>Live Performances</span>
+        </div>
+        <div class="intro__stat">
+          <span class="intro__stat-num">02</span>
+          <strong><span data-count="100">0</span>+</strong>
+          <span>World-Class DJ Sets</span>
+        </div>
+        <div class="intro__stat">
+          <span class="intro__stat-num">03</span>
+          <strong><span data-count="1000">0</span>+</strong>
+          <span>Souls, One Floor</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ============ TICKER ============ -->
@@ -197,14 +250,14 @@
         <p class="eyebrow reveal">Upcoming Events</p>
         <h2 class="reveal">The nights coming up <span class="grad">at Savara</span></h2>
       </div>
-      <div class="carousel__nav reveal" aria-hidden="false">
-        <button class="carousel__btn" data-carousel-prev aria-label="Previous events"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-        <button class="carousel__btn" data-carousel-next aria-label="Next events"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      <div class="carousel__nav">
+        <button type="button" class="carousel__btn" data-carousel-prev aria-label="Previous events" aria-controls="events-carousel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" class="carousel__btn" data-carousel-next aria-label="Next events" aria-controls="events-carousel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
       </div>
     </div>
 
     <div class="carousel reveal">
-      <div class="carousel__track">
+      <div class="carousel__track" id="events-carousel" tabindex="0" aria-label="Upcoming events">
         <article class="ev-card">
           <div class="ev-card__media">
             <img src="assets/club-imgs/jpeg-44.webp" alt="Phoenix Rising · The Ember Sessions" loading="lazy" />
@@ -277,56 +330,47 @@
   <section class="section performances" id="performances">
     <div class="section__head">
       <div>
-        <p class="eyebrow reveal">LIVE Performances</p>
-        <h2 class="reveal">The artists &amp; acts <span class="grad">behind every night</span></h2>
+        <p class="eyebrow reveal">The Space</p>
+        <h2 class="reveal">The rooms that <span class="grad">set the night</span></h2>
       </div>
-      <div class="carousel__nav reveal">
-        <button class="carousel__btn" data-carousel-prev aria-label="Previous reels"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-        <button class="carousel__btn" data-carousel-next aria-label="Next reels"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      <div class="carousel__nav">
+        <button type="button" class="carousel__btn" data-carousel-prev aria-label="Previous reel" aria-controls="performances-carousel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" class="carousel__btn" data-carousel-next aria-label="Next reel" aria-controls="performances-carousel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
       </div>
     </div>
 
     <div class="carousel reveal">
-      <div class="carousel__track">
+      <div class="carousel__track" id="performances-carousel" tabindex="0" aria-label="Venue reels">
         <article class="reel paused">
-          <video loop muted playsinline preload="metadata" poster="assets/club-imgs/jpeg-7.webp">
-            <source src="assets/club-imgs/C1630.MP4" type="video/mp4" />
+          <video loop muted playsinline preload="metadata" poster="assets/video/reel-1-poster.webp">
+            <source src="assets/video/reel-1.mp4" type="video/mp4" />
           </video>
           <div class="reel__grad"></div>
           <button class="reel__sound" aria-label="Toggle sound"></button>
           <button class="reel__play" aria-label="Play or pause"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-          <div class="reel__meta"><h3>Main Floor</h3><span>Resident set · live</span></div>
+          <div class="reel__meta"><h3>The Entrance</h3><span>Neon arch · Vagator</span></div>
         </article>
 
         <article class="reel paused">
-          <video loop muted playsinline preload="metadata" poster="assets/club-imgs/jpeg-47.webp">
-            <source src="assets/club-imgs/C1635.MP4" type="video/mp4" />
+          <video loop muted playsinline preload="metadata" poster="assets/video/reel-2-poster.webp">
+            <source src="assets/video/reel-2.mp4" type="video/mp4" />
           </video>
           <div class="reel__grad"></div>
           <button class="reel__sound" aria-label="Toggle sound"></button>
           <button class="reel__play" aria-label="Play or pause"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-          <div class="reel__meta"><h3>Aerial &amp; Fire</h3><span>Live performance</span></div>
+          <div class="reel__meta"><h3>The Light Canopy</h3><span>Fibre-optic ceiling</span></div>
         </article>
 
         <article class="reel paused">
-          <video loop muted playsinline preload="metadata" poster="assets/club-imgs/jpeg-26.webp">
-            <source src="assets/club-imgs/C1622.MP4" type="video/mp4" />
+          <video loop muted playsinline preload="metadata" poster="assets/video/reel-3-poster.webp">
+            <source src="assets/video/reel-3.mp4" type="video/mp4" />
           </video>
           <div class="reel__grad"></div>
           <button class="reel__sound" aria-label="Toggle sound"></button>
           <button class="reel__play" aria-label="Play or pause"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-          <div class="reel__meta"><h3>Waterfall &amp; Island Bar</h3><span>The room, alive</span></div>
+          <div class="reel__meta"><h3>Cascade</h3><span>Fibre-optic ceiling · violet</span></div>
         </article>
 
-        <article class="reel paused">
-          <video loop muted playsinline preload="metadata" poster="assets/club-imgs/jpeg-21.webp">
-            <source src="assets/club-imgs/C1625.MP4" type="video/mp4" />
-          </video>
-          <div class="reel__grad"></div>
-          <button class="reel__sound" aria-label="Toggle sound"></button>
-          <button class="reel__play" aria-label="Play or pause"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-          <div class="reel__meta"><h3>Peak Time</h3><span>Guest DJ · main floor</span></div>
-        </article>
       </div>
     </div>
   </section>
@@ -341,17 +385,44 @@
         Follow us @savara_goa
       </a>
     </div>
+    <!-- Tiles stay real links so they still reach Instagram without JS;
+         script.js upgrades the click into the lightbox. -->
     <div class="gallery__grid">
-      <a class="gallery__item reveal" href="https://instagram.com/savara_goa" target="_blank" rel="noopener" data-no-transition><img src="assets/club-imgs/jpeg-99.webp" alt="Savara front facade" loading="lazy" /></a>
-      <div class="gallery__item gallery__item--tall gallery__item--video reveal">
-        <video autoplay loop muted playsinline preload="metadata" poster="assets/club-imgs/jpeg-121.webp"><source src="assets/club-imgs/C1630.MP4" type="video/mp4" /></video>
-      </div>
-      <a class="gallery__item reveal" href="https://instagram.com/savara_goa" target="_blank" rel="noopener" data-no-transition><img src="assets/club-imgs/jpeg-12.webp" alt="Food photography" loading="lazy" /></a>
-      <a class="gallery__item reveal" href="https://instagram.com/savara_goa" target="_blank" rel="noopener" data-no-transition><img src="assets/club-imgs/jpeg-46.webp" alt="Indoor waterfall and island bar" loading="lazy" /></a>
-      <a class="gallery__item reveal" href="https://instagram.com/savara_goa" target="_blank" rel="noopener" data-no-transition><img src="assets/club-imgs/jpeg-3.webp" alt="Crowd on the floor" loading="lazy" /></a>
-      <div class="gallery__item gallery__item--wide gallery__item--video reveal">
-        <video autoplay loop muted playsinline preload="metadata" poster="assets/club-imgs/jpeg-5.webp"><source src="assets/club-imgs/C1635.MP4" type="video/mp4" /></video>
-      </div>
+      <a class="gallery__item reveal" href="https://instagram.com/savara_goa" target="_blank" rel="noopener" data-no-transition
+         data-media="assets/club-imgs/jpeg-99.webp" data-caption="Guests under the beams">
+        <img src="assets/club-imgs/jpeg-99.webp" alt="Three guests posing on the floor under red and magenta beam lighting" loading="lazy" />
+        <span class="gallery__cap">Guests under the beams</span>
+      </a>
+
+      <a class="gallery__item gallery__item--tall gallery__item--video reveal" href="https://instagram.com/savara_goa" target="_blank" rel="noopener" data-no-transition
+         data-media="assets/video/reel-1.mp4" data-type="video" data-poster="assets/video/reel-1-poster.webp" data-caption="The entrance tunnel">
+        <video autoplay loop muted playsinline preload="metadata" poster="assets/video/reel-1-poster.webp"><source src="assets/video/reel-1.mp4" type="video/mp4" /></video>
+        <span class="gallery__cap">The entrance tunnel</span>
+      </a>
+
+      <a class="gallery__item reveal" href="https://instagram.com/savara_goa" target="_blank" rel="noopener" data-no-transition
+         data-media="assets/club-imgs/jpeg-12.webp" data-caption="VAAVE × Savara">
+        <img src="assets/club-imgs/jpeg-12.webp" alt="VAAVE and Savara logos on the main LED wall between two chrome hands" loading="lazy" />
+        <span class="gallery__cap">VAAVE × Savara</span>
+      </a>
+
+      <a class="gallery__item reveal" href="https://instagram.com/savara_goa" target="_blank" rel="noopener" data-no-transition
+         data-media="assets/club-imgs/jpeg-46.webp" data-caption="Lasers over the floor">
+        <img src="assets/club-imgs/jpeg-46.webp" alt="Crowd silhouetted with hands raised under red laser beams" loading="lazy" />
+        <span class="gallery__cap">Lasers over the floor</span>
+      </a>
+
+      <a class="gallery__item reveal" href="https://instagram.com/savara_goa" target="_blank" rel="noopener" data-no-transition
+         data-media="assets/club-imgs/jpeg-3.webp" data-caption="Live performance">
+        <img src="assets/club-imgs/jpeg-3.webp" alt="Performer in a lilac fringed costume dancing in front of a blue LED wall" loading="lazy" />
+        <span class="gallery__cap">Live performance</span>
+      </a>
+
+      <a class="gallery__item gallery__item--wide gallery__item--video reveal" href="https://instagram.com/savara_goa" target="_blank" rel="noopener" data-no-transition
+         data-media="assets/video/reel-2.mp4" data-type="video" data-poster="assets/video/reel-2-poster.webp" data-caption="Fibre-optic canopy">
+        <video autoplay loop muted playsinline preload="metadata" poster="assets/video/reel-2-poster.webp"><source src="assets/video/reel-2.mp4" type="video/mp4" /></video>
+        <span class="gallery__cap">Fibre-optic canopy</span>
+      </a>
     </div>
     <div class="gallery__foot reveal">
       <a href="https://instagram.com/savara_goa" class="btn btn--ghost" target="_blank" rel="noopener" data-no-transition>Follow on Instagram</a>
